@@ -4,6 +4,7 @@ import cv2
 import cvzone
 from cvzone.HandTrackingModule import HandDetector
 import time
+import numpy as np
 
 cap = cv2.VideoCapture(0)
 cap.set(3, 640)
@@ -44,16 +45,16 @@ while True:
                     fingers = detector.fingersUp(hand)
                     # print(fingers)
 
-                    if fingers == [0,0,0,0,0]:
-                        playerMove = 1
-                    if fingers == [0,1,1,0,0]:
-                        playerMove = 3
-                    if fingers == [1,1,1,1,1]:
+                    if np.sum(fingers) == 5:
                         playerMove = 2
+                    elif np.sum(fingers) == 2:
+                        playerMove = 3
+                    else:
+                        playerMove = 1
 
-                    num = random.randint(1,3)
+                    num = random.randint(1, 3)
                     imgAI = cv2.imread(f'Resources/{num}.png', cv2.IMREAD_UNCHANGED)
-                    imgBG = cvzone.overlayPNG(imgBG, imgAI, (149,310))
+                    imgBG = cvzone.overlayPNG(imgBG, imgAI, (149, 310))
 
                     #condition of the player winning
                     if (playerMove == 1 and num == 3) or \
@@ -81,3 +82,6 @@ while True:
         startGame = True
         stateRes = False
         initialTime = time.time()
+
+    if key == ord('q'):
+        break;
