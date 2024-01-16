@@ -34,5 +34,6 @@ This project is a simple Rock-Paper-Scissors game that uses hand detection to in
 3. Show your hand gesture to the camera, and the AI will generate a random move.
 4. The result will be displayed on the screen, and the score will be updated accordingly.
 5. Press 'q' to quit the game.
+6. Press 'r' to restart the game.
 
 
