@@ -35,4 +35,9 @@ This project is a simple Rock-Paper-Scissors game that uses hand detection to in
 4. The result will be displayed on the screen, and the score will be updated accordingly.
 5. Press 'q' to quit the game.
 
+## SnapShots of Game:
+![Shot 1](Screenshots/shot1.png)
+
+![Shot 2](Screenshots/shot2.png)
+
 
